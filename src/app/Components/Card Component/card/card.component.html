@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card my-5">
+            <div id="card-qr" class="card-body">
+                <div class="row">
+                    <div class=" col-md-8 offset-1 ">
+                        <div class="row ">
+                            <div class="text-start">
+                                <h5 class="h5 py-3">عرض التذكرة الخاصة بالفيلم</h5>
+                                <span class="p-input-icon-left text-black ">
+                                    <p-toast></p-toast>
+                                    <i (click)="copyFunc(copyText)" id="copy-icon" class="pi pi-copy"  pTooltip="انسخ النص" tooltipPosition="bottom"></i>
+                                    <input id="input-copy" class="form-control-lg" [value]="copyText" type="text" pInputText [pTooltip]="copyText" tooltipPosition="right"/>
+                                </span>
+                                <p class="fw-bold py-2">فعال حتي 15 يونيو 2023</p>
+                            </div>
+        
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="py-4">
+                            <button type="submit" class="button-card"   pTooltip="حذف" tooltipPosition="bottom"
+                                > <i class="pi pi-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                    <!-- <p-divider  type="dashed"></p-divider> -->
+                    <hr class="card-hr">
+                <div class="row">
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-8">
+                            <h5 class="mx-5 py-2">خصم</h5>
+                            <ul class="nav">
+                                <li class="nav-item">
+                                    <label for="share-button" class="h3"> 25% &nbsp;</label>
+                                    <button  pTooltip=" مشاركة تذكرتك" tooltipPosition="left" id="share-button">
+                                        <i class="pi pi-send"></i> مشاركة</button>
+                                </li>
+                            </ul>
+        
+                        </div>
+                        <div class="qrcodeImage" pTooltip="امسح رمز التشفير لتحصل علي معولومات تذكرتك" tooltipPosition="bottom">
+                            <qrcode [qrdata]="'https://www.linkedin.com/in/mohammed-sayed-8385a9220/'" [allowEmptyString]="true"
+                                [cssClass]="'demoBorderRadius'" [colorDark]="'#000000'" [colorLight]="'#ffffff'"
+                                [elementType]="'canvas'" [errorCorrectionLevel]="'M'" [scale]="1" [width]="150"></qrcode>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

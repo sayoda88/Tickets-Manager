@@ -1,0 +1,33 @@
+.head-btn{
+    background-color: rgba(138, 116, 249, 1);
+    color: #FFFFFF;
+    padding: 15px;
+    border: #FFFFFF solid 2px ;
+    border-radius: 10px;
+    transition: all 0.8s;
+}
+.head-btn:hover{
+    background-color: #FFFFFF;
+    color: rgba(138, 116, 249, 1);
+    border: rgba(138, 116, 249, 1) solid 2px ;
+}
+.switch-btn{
+    color: rgba(138, 116, 249, 1);
+}
+.p-inputswitch {
+    color: rgba(138, 116, 249, 1) !important;
+}
+.download-btn{
+    background-color: #FFFFFF;
+    color: rgba(138, 116, 249, 1);
+    padding: 9px;
+    border: rgba(138, 116, 249, 1) solid 2px ;
+    border-radius: 10px;
+    transition: all 0.8s;
+}
+.download-btn:hover{
+    background-color: rgba(138, 116, 249, 1);
+    color: #FFFFFF;
+    border: #FFFFFF solid 2px ;
+    border-radius: 10px;
+}

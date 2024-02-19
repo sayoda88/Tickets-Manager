@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <p-table styleClass="p-datatable-striped" [value]="ticketList"
+                [paginator]="true"
+                [rows]="5"
+                [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                (onPage)="pageChange($event)"
+                [rowsPerPageOptions]="[10, 25, 50]"
+                paginatorLocale="fa-IR"
+            >
+                <ng-template pTemplate="caption">
+                    <div class="d-flex justify-content-between">
+                        <ul class="nav   ">
+                            <li class="nav-item mx-3">
+                                <h4> مبيعات التذاكر</h4>
+                            </li>
+                            <li class="nav-item">
+                                <span class="p-input-icon-right text-black ">
+                                    <i class="pi pi-search"></i>
+                                    <input class="form-control-lg" type="text" pInputText />
+                                </span>
+                            </li>
+                            <li class="nav-item m-2">
+                                <button type="button" class="btn btn-outline-secondary"><i class="pi pi-sliders-h"></i></button>
+                            </li>
+                            <li class="nav-item m-2">
+                                <button type="button" class="btn btn-outline-secondary"><i class="pi pi-sort-alt"></i></button>
+                            </li>
+                        </ul>
+                        <ul class="nav ">
+                            <li class="nav-item mx-4">
+                                <label for="switch1" >  مفعل &nbsp;&nbsp;&nbsp;</label>
+                                <p-inputSwitch inputId="switch1" class="py-2 switch-btn" [falseValue]="swichtBtnCase"></p-inputSwitch>
+                            </li>
+                            <li class="nav-item">
+                                <button class="head-btn"  >حجز تذكرة جديدة </button>
+                            </li>
+                        </ul>
+                    </div>
+                </ng-template> 
+        
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>#</th>
+                        <th pSortableColumn="name" class="text-center">المستخدم</th>
+                        <th pSortableColumn="id" class="text-center">رقم التذكرة </th>
+                        <th pSortableColumn="price" class="text-center">قيمة التذكرة <p-sortIcon field="price"></p-sortIcon></th>
+                        <th pSortableColumn="cinemaName" class="text-center">السينيمات</th>
+                        <th pSortableColumn="peopleNo" class="text-center"> عدد الأشخاص</th>
+                        <th pSortableColumn="quantity" class="text-center">عدد مرات الشراء</th>
+                        <th pSortableColumn="ticket" class="text-center">التذكرة</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-ticketList let-rowIndex="rowIndex">
+                    <tr>
+                        <td class="text-center">{{ ticketList.rowIndex+1 }}</td>
+                        <td class="text-center">
+                            <div class="d-flex justify-content-around align-items-center">
+                                <div>
+                                    <img src="{{ticketList.user.userImg }}" alt="">
+                                </div>
+                                <div>
+                                    {{ ticketList.user.name }}
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-center">{{ ticketList.id }}</td>
+                        <td class="text-center">{{ ticketList.price | currency: 'USD':'symbol'}}</td>
+                        <td class="text-center">{{ ticketList.cinemaName }}</td>
+                        <td class="text-center">{{ ticketList.peopleNo }}</td>
+                        <td class="text-center">{{ ticketList.quantity }}</td>
+                        <td class="text-center">
+                            <div class="d-flex justify-content-end align-items-center ">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <i  class="pi pi-ticket "  ></i>
+                                    <p    pTooltip="تذكرة رقم 45" tooltipPosition="right"> تذكرة رقم 45.pdf</p>
+                                </div>
+                                <div class="mx-2">
+                                    <button class="download-btn" pTooltip="تحميل التذكرة" tooltipPosition="bottom"> <i class="pi pi-download"></i></button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="Summary"> 
+                    <ng-template pTemplate="paginatorleft">
+                        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+                    </ng-template>
+                    <ng-template pTemplate="paginatorright">
+                        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+                    </ng-template>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
